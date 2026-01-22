@@ -1,0 +1,176 @@
+/* --- Media Queries --- */
+
+@media screen and (max-width: 1400px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 6rem;
+  }
+  .about-containers {
+    flex-wrap: wrap;
+  }
+  #contact,
+  #projects {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+  }
+  #experience,
+  .skills-container {
+    margin-top: 2rem;
+  }
+  #profile,
+  .section-container {
+    display: block;
+  }
+  .arrow {
+    display: none;
+  }
+  section,
+  .section-container {
+    height: fit-content;
+  }
+  section {
+    margin: 0 5%;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
+    gap: 2rem;
+    flex-direction: column;
+  }
+  .details-container,
+  .skills-section {
+    padding: 1.25rem;
+    width: 95%;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .article-container {
+    gap: 1.25rem;
+    justify-content: center; /* Ensures centering on tablet */
+  }
+  article {
+    width: 8.5rem;
+    padding: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #contact,
+  footer {
+    height: 40vh;
+  }
+  #profile {
+    height: 83vh;
+    margin-bottom: 0;
+  }
+  section {
+    margin: 0 3%;
+  }
+  #experience .skills-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  /* Adjusted for mobile centering */
+  article {
+    font-size: 0.9rem;
+    width: calc(50% - 1rem); /* 2 items per row */
+    margin-bottom: 0.75rem;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+  }
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  .about-containers,
+  .contact-info-upper-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  
+  .profile-btn-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  .contact-info-container {
+    margin: 0;
+  }
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .section__pic-container {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .text-container {
+    text-align: justify;
+  }
+  .btn {
+    padding: 0.8rem;
+    width: 7rem;
+  }
+  .details-container,
+  .skills-section {
+    padding: 1rem;
+    width: 98%;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .article-container {
+    gap: 0.5rem; /* Reduced gap for small screens */
+    padding: 0.25rem 0;
+    justify-content: center;
+  }
+  .icon-tech {
+    font-size: 1.5rem;
+  }
+  article h3 {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+  }
+  article p {
+    font-size: 0.8rem;
+  }
+}
