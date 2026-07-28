@@ -1,0 +1,383 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #09090b;
+  color: #fafafa;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Selection Color */
+::selection {
+  background-color: rgba(139, 92, 246, 0.3);
+  color: #ffffff;
+}
+
+/* Background Effects */
+.particle-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.1s ease-out;
+  background: transparent;
+}
+
+.morphing-blob {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: 30%;
+  left: -10%;
+  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.06));
+  filter: blur(80px);
+  animation: morphBlob 18s ease-in-out infinite alternate;
+  will-change: transform, border-radius;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes morphBlob {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    border-radius: 58% 42% 30% 70% / 55% 55% 45% 45%;
+    transform: translate(60px, -30px) scale(1.05) rotate(5deg);
+  }
+  50% {
+    border-radius: 50% 50% 50% 50% / 40% 60% 40% 60%;
+    transform: translate(-20px, 40px) scale(1.1) rotate(-3deg);
+  }
+  75% {
+    border-radius: 35% 65% 55% 45% / 60% 40% 60% 40%;
+    transform: translate(40px, -50px) scale(0.95) rotate(8deg);
+  }
+  100% {
+    border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%;
+    transform: translate(-30px, 20px) scale(1.02) rotate(-5deg);
+  }
+}
+
+.shooting-stars-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6));
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.4));
+  animation: shoot linear forwards;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.4), transparent);
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(-35deg) scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-500px, 500px) rotate(-35deg) scale(0);
+    opacity: 0;
+  }
+}
+
+.glow-spot-1 {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0) 70%);
+}
+
+.glow-spot-2 {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0) 70%);
+}
+
+.ambient-orb {
+  position: absolute;
+  width: 19rem;
+  height: 19rem;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.16;
+  animation: drift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-orb-one {
+  top: 38rem;
+  right: -8rem;
+  background: #8b5cf6;
+}
+
+.ambient-orb-two {
+  top: 112rem;
+  left: -9rem;
+  background: #2563eb;
+  animation-delay: -7s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(35px, -45px, 0) scale(1.12);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Skills Panel */
+.skills-panel {
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.42), rgba(9, 9, 11, 0.68));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+}
+
+/* Contact Shell */
+.contact-shell {
+  background: linear-gradient(135deg, rgba(39, 39, 42, 0.58), rgba(9, 9, 11, 0.86));
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.16);
+}
+
+/* Projects Showcase */
+.projects-showcase {
+  counter-reset: project-number;
+}
+
+/* ===== LIGHT THEME OVERRIDES ===== */
+/* ThemeContext adds `light` class to <html> element */
+
+.light body,
+body:has(.light) {
+  background-color: #fafafa !important;
+  color: #18181b !important;
+}
+
+.light .bg-zinc-950,
+.light .bg-zinc-950\/70,
+.light .bg-zinc-950\/80,
+.light .bg-zinc-950\/95,
+.light .bg-zinc-950\/40,
+.light .bg-zinc-950\/60 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.light .bg-zinc-900,
+.light .bg-zinc-900\/10,
+.light .bg-zinc-900\/40,
+.light .bg-zinc-900\/50,
+.light .bg-zinc-900\/60,
+.light .bg-zinc-900\/80 {
+  background-color: rgba(244, 244, 245, 0.9) !important;
+}
+
+.light .bg-zinc-800 {
+  background-color: #e4e4e7 !important;
+}
+
+.light .border-zinc-900,
+.light .border-zinc-900\/60,
+.light .border-zinc-800 {
+  border-color: #d4d4d8 !important;
+}
+
+.light .border-zinc-950 {
+  border-color: #fafafa !important;
+}
+
+.light .border-white\/5,
+.light .border-white\/10,
+.light .border-white\/20 {
+  border-color: rgba(39, 39, 42, 0.12) !important;
+}
+
+.light header > div {
+  box-shadow: 0 12px 30px rgba(39, 39, 42, 0.08) !important;
+}
+
+.light .ambient-orb {
+  opacity: 0.10;
+}
+
+.light .text-white,
+.light .text-zinc-50,
+.light .text-zinc-200 {
+  color: #18181b !important;
+}
+
+.light .text-zinc-100,
+.light .text-zinc-300 {
+  color: #3f3f46 !important;
+}
+
+.light .text-zinc-400,
+.light .text-zinc-500 {
+  color: #71717a !important;
+}
+
+.light .hover\:text-white:hover,
+.light .hover\:text-zinc-100:hover,
+.light .hover\:text-zinc-200:hover {
+  color: #18181b !important;
+}
+
+.light .hover\:bg-zinc-900:hover,
+.light .hover\:bg-zinc-800:hover {
+  background-color: #e4e4e7 !important;
+}
+
+/* About portrait text stays white even in light mode */
+.light .about-portrait .text-white {
+  color: #ffffff !important;
+}
+
+.light .about-portrait .text-brand-300 {
+  color: #ddd6fe !important;
+}
+
+/* Skills */
+.light .skills-panel {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(244, 244, 245, 0.9)) !important;
+  box-shadow: 0 20px 50px rgba(39, 39, 42, 0.08) !important;
+}
+
+.light #skills .grid > div {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: rgba(113, 113, 122, 0.22) !important;
+}
+
+/* Projects */
+.light .projects-showcase > div {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(244, 244, 245, 0.92)) !important;
+  border-color: rgba(113, 113, 122, 0.22) !important;
+  box-shadow: 0 14px 30px rgba(39, 39, 42, 0.07) !important;
+}
+
+.light .projects-showcase > div::before {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(113, 113, 122, 0.25) !important;
+  color: #3f3f46 !important;
+}
+
+/* Contact */
+.light .contact-shell {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(245, 243, 255, 0.9)) !important;
+  box-shadow: 0 22px 48px rgba(39, 39, 42, 0.08) !important;
+}
+
+.light .contact-link {
+  background: rgba(255, 255, 255, 0.86) !important;
+}
+
+.light .contact-link:hover {
+  background: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(39, 39, 42, 0.08) !important;
+}
+
+.light #contact a.bg-gradient-to-r {
+  color: #ffffff !important;
+}
+
+/* Background effects light overrides */
+.light .morphing-blob {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(59, 130, 246, 0.03));
+  opacity: 0.6;
+}
+
+.light .shooting-star::after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.15), transparent);
+}
+
+/* Scrollbar light */
+.light ::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #a1a1aa;
+}
+
+/* Education cards in light */
+.light .backdrop-blur-sm {
+  backdrop-filter: none;
+}
+
+.light [class*="rounded-2xl border"][class*="bg-"] {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Light mode fix for education badge pills */
+.light .text-brand-400,
+.light .text-indigo-400,
+.light .text-blue-400,
+.light .text-sky-400 {
+  opacity: 1 !important;
+}
+
+@media (max-width: 767px) {
+  .morphing-blob {
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    left: -20%;
+    filter: blur(60px);
+  }
+}
